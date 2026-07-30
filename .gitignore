@@ -49,8 +49,8 @@ datasets/raw/*
 datasets/processed/*
 !datasets/processed/.gitkeep
 
-datasets/external/*
-!datasets/external/.gitkeep
+datasets/sample/*
+!datasets/sample/.gitkeep
 
 # Spark
 spark-warehouse/
