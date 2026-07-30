@@ -19,6 +19,7 @@ env/
 
 # macOS
 .DS_Store
+Thumbs.db
 
 # Jupyter
 .ipynb_checkpoints/
@@ -34,6 +35,7 @@ logs/
 
 # Python testing and coverage
 .pytest_cache/
+.ruff_cache/
 .coverage
 htmlcov/
 
