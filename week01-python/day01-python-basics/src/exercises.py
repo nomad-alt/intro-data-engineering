@@ -83,3 +83,10 @@ schema_is_valid = True
 
 ready_for_processing = file_exists and not file_is_empty and schema_is_valid
 print(f"Ready for processing: {ready_for_processing}")
+
+total_rows = 10_000
+invalid_rows = 125
+
+print(f"Valid row count: {total_rows - invalid_rows}")
+print(f"Invalid row percentage: {invalid_rows / total_rows * 100}")
+print(f"Dataset is valid: {invalid_rows < 0.02 * total_rows}")
