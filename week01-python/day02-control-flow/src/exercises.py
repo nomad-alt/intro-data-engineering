@@ -27,3 +27,21 @@ def classify_temperature(temp: int) -> str:
 for temp in temperatures:
     classification = classify_temperature(temp)
     print(f"{temp} -> {classification}")
+
+
+salaries = [32000, 45000, 60000, 75000, 90000]
+
+
+def classify_salary(salary: int) -> str:
+    """Classify salaries as 'Low', 'Medium' and 'High'."""
+    if salary < 40000:
+        return "Low"
+    elif 40000 <= salary <= 70000:
+        return "Medium"
+    else:
+        return "High"
+
+
+for salary in salaries:
+    classification = classify_salary(salary)
+    print(f"{salary} -> {classification}")
