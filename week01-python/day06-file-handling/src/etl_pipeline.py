@@ -2,6 +2,11 @@ import csv
 from pathlib import Path
 
 
+def increase_salary(salary: float, percentage: float) -> float:
+    """Increase salary by a given percentage."""
+    return salary * (1 + percentage / 100)
+
+
 def extract(path: Path) -> list[dict[str, str]]:
     """Read employee records from a CSV file."""
     with path.open("r", newline="", encoding="utf-8") as csv_file:
@@ -16,7 +21,7 @@ def transform(
     transformed_employees: list[dict[str, object]] = []
     for employee in employees:
         salary = float(employee["salary"])
-        new_salary = salary * 1.1
+        new_salary = increase_salary(salary, 10)
         transformed_employees.append(
             {
                 "employee_id": employee["employee_id"],
