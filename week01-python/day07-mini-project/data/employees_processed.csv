@@ -1,0 +1,6 @@
+employee_id,name,department,salary,new_salary,salary_band
+1,Alice,Engineering,35000.0,38500.0,Mid
+2,Bob,Sales,42000.0,46200.00000000001,Senior
+3,John,Engineering,28000.0,30800.000000000004,Junior
+4,Sara,Marketing,39000.0,42900.0,Mid
+5,David,Sales,45000.0,49500.00000000001,Senior
