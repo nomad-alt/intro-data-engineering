@@ -33,11 +33,27 @@ Schema files:
 - Pattern matching with LIKE and ILIKE
 - Data modification with INSERT, UPDATE, and DELETE
 - Handling NULL values with IS NULL, IS NOT NULL, and COALESCE
-- Aggregations and GROUP BY
+- Aggregate functions (COUNT, SUM, AVG, MIN, MAX)
+- GROUP BY for category-level summaries
+- HAVING for filtering grouped results
 - JOINs between related tables
 - Common Table Expressions (CTEs)
+- Reporting queries for business summaries
+- Query execution order
 - Window functions for advanced reporting
 - Query formatting and SQL comments
+
+## Query Execution Order
+
+SQL is written in one order but executed logically in another:
+
+1. FROM / JOIN
+2. WHERE
+3. GROUP BY
+4. HAVING
+5. SELECT
+6. ORDER BY
+7. LIMIT
 
 ## How To Create The Database
 

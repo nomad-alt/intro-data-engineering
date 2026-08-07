@@ -38,6 +38,41 @@
 - UPDATE: Modifies existing rows, usually with a WHERE clause.
 - DELETE: Removes rows, usually with a WHERE clause.
 
+## Aggregation and Reporting
+
+Aggregate functions summarize many rows into one value. Combined with GROUP BY, they allow SQL to produce reports and business metrics directly from raw data.
+
+- COUNT(): Counts rows (or non-NULL values in a specific column).
+  - Example: COUNT(*) returns total row count.
+- SUM(): Adds numeric values.
+  - Example: SUM(salary) returns total payroll.
+- AVG(): Returns the average of numeric values.
+  - Example: AVG(salary) returns mean salary.
+- MIN(): Returns the smallest value.
+  - Example: MIN(hire_date) returns earliest hire date.
+- MAX(): Returns the largest value.
+  - Example: MAX(salary) returns highest salary.
+- GROUP BY: Splits rows into groups, then applies aggregate functions per group.
+  - Example: GROUP BY department_id gives one summary row per department.
+- HAVING: Filters grouped results after aggregation.
+  - Example: HAVING AVG(salary) > 40000 keeps only high-average departments.
+
+### WHERE vs HAVING
+
+- WHERE filters individual rows before grouping and aggregation.
+- HAVING filters grouped rows after GROUP BY and aggregate calculations.
+- Rule of thumb: use WHERE for row-level filtering, HAVING for aggregate-level filtering.
+
+### SQL Execution Order (Logical)
+
+1. FROM / JOIN
+2. WHERE
+3. GROUP BY
+4. HAVING
+5. SELECT
+6. ORDER BY
+7. LIMIT
+
 ## Why SQL Is Declarative
 
 SQL is declarative because you describe what result you want, not the exact step-by-step procedure to fetch it.
