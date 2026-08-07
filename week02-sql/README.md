@@ -28,7 +28,11 @@ Schema files:
 ## Topics Learned
 
 - SELECT fundamentals and column projection
-- Filtering with WHERE conditions
+- Filtering data with WHERE conditions
+- Sorting results with ORDER BY
+- Pattern matching with LIKE and ILIKE
+- Data modification with INSERT, UPDATE, and DELETE
+- Handling NULL values with IS NULL, IS NOT NULL, and COALESCE
 - Aggregations and GROUP BY
 - JOINs between related tables
 - Common Table Expressions (CTEs)

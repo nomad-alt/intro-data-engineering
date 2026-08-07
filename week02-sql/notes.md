@@ -20,6 +20,24 @@
   - Single-line comment: -- comment text
   - Multi-line comment: /* comment text */
 
+## Filtering, Sorting, and Data Changes
+
+- WHERE: Filters rows before results are returned.
+  - WHERE is one of the most important clauses in SQL for both correctness and performance because it narrows the dataset early.
+- Comparison operators: Used inside filters, including =, !=, >, <, >=, <=.
+- AND: Combines multiple conditions and requires all to be true.
+- OR: Combines conditions and requires at least one to be true.
+- NOT: Negates a condition.
+- IN: Matches a value against a list of allowed values.
+- BETWEEN: Filters a value within an inclusive range.
+- LIKE: Pattern matching with wildcards such as % and _.
+- IS NULL: Filters rows where a column has no value.
+- ORDER BY: Sorts rows, ascending by default, descending with DESC.
+- LIMIT: Caps the number of rows returned.
+- INSERT: Adds new rows to a table.
+- UPDATE: Modifies existing rows, usually with a WHERE clause.
+- DELETE: Removes rows, usually with a WHERE clause.
+
 ## Why SQL Is Declarative
 
 SQL is declarative because you describe what result you want, not the exact step-by-step procedure to fetch it.
