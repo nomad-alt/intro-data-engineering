@@ -97,3 +97,15 @@ Then the database engine decides how to execute the query internally (for exampl
 - COALESCE(): Returns the first non-NULL value from a list of expressions and is useful for default values in reports.
 
 INNER JOIN returns only matching rows. LEFT JOIN returns all rows from the left table and matching rows from the right table. This makes LEFT JOIN especially useful for finding missing or unmatched data in ETL pipelines.
+
+## Subqueries and CTEs
+
+- Scalar subquery: Returns exactly one value and is often used in a SELECT list or WHERE clause.
+- Multi-row subquery: Returns multiple values and is commonly used with IN, ANY, or ALL.
+- Derived table: A subquery used in the FROM clause, treated like a temporary table.
+- CTE (Common Table Expression): A named temporary result set defined with WITH that makes complex SQL easier to read.
+- Multiple CTEs: Several CTEs can be chained together to break a problem into logical steps.
+- Why CTEs improve readability: They break a large query into smaller, named building blocks, which makes logic easier to follow and debug.
+- When to choose a CTE instead of a nested subquery: Use a CTE when the query becomes long, layered, or needs to be reused in several parts of the same statement.
+
+CTEs don't necessarily make a query faster, but they often make it much easier to understand, maintain, and debug. In analytics engineering and dbt, complex transformations are commonly built as a sequence of readable CTEs.

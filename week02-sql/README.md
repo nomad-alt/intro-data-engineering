@@ -42,7 +42,12 @@ Schema files:
 - LEFT JOIN for all left-table rows and matched right-table rows
 - RIGHT JOIN for all right-table rows and matched left-table rows
 - FULL OUTER JOIN for all rows from both tables with NULL where unmatched
+- Scalar subqueries for single-value results
+- Multi-row subqueries for sets of values
+- Derived tables for inline subqueries used as temporary result sets
 - Common Table Expressions (CTEs)
+- Multiple CTEs for cleaner, layered query logic
+- Analytical queries for business reporting and metrics
 - Reporting queries for business summaries
 - Query execution order
 - Window functions for advanced reporting
