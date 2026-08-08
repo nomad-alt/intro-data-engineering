@@ -28,15 +28,20 @@ Schema files:
 ## Topics Learned
 
 - SELECT fundamentals and column projection
+- Primary keys for unique row identification
+- Foreign keys for table relationships and referential integrity
 - Filtering data with WHERE conditions
 - Sorting results with ORDER BY
 - Pattern matching with LIKE and ILIKE
 - Data modification with INSERT, UPDATE, and DELETE
-- Handling NULL values with IS NULL, IS NOT NULL, and COALESCE
+- Handling NULL values with IS NULL, IS NOT NULL, and COALESCE()
 - Aggregate functions (COUNT, SUM, AVG, MIN, MAX)
 - GROUP BY for category-level summaries
 - HAVING for filtering grouped results
-- JOINs between related tables
+- INNER JOIN for matched records only
+- LEFT JOIN for all left-table rows and matched right-table rows
+- RIGHT JOIN for all right-table rows and matched left-table rows
+- FULL OUTER JOIN for all rows from both tables with NULL where unmatched
 - Common Table Expressions (CTEs)
 - Reporting queries for business summaries
 - Query execution order

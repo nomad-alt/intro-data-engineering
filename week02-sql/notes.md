@@ -83,3 +83,17 @@ You write intent, such as:
 - which filters, groups, or sort order to apply
 
 Then the database engine decides how to execute the query internally (for example, index scan, sequential scan, join strategy, and execution order optimizations). This separation lets you focus on business logic while the optimizer chooses an efficient retrieval strategy.
+
+## Relationships and Joins
+
+- Primary key: A unique identifier for each row in a table.
+- Foreign key: A column that references a primary key in another table to create a relationship.
+- One-to-many relationship: One row in a parent table can relate to many rows in a child table (for example, one department to many employees).
+- INNER JOIN: Returns only rows where join keys match in both tables.
+- LEFT JOIN: Returns all rows from the left table and matching rows from the right table.
+- RIGHT JOIN: Returns all rows from the right table and matching rows from the left table.
+- FULL OUTER JOIN: Returns all rows from both tables, with NULL where no match exists.
+- Table aliases: Short names for tables (for example, e for employees) to make joins easier to read and write.
+- COALESCE(): Returns the first non-NULL value from a list of expressions and is useful for default values in reports.
+
+INNER JOIN returns only matching rows. LEFT JOIN returns all rows from the left table and matching rows from the right table. This makes LEFT JOIN especially useful for finding missing or unmatched data in ETL pipelines.
