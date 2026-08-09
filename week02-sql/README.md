@@ -1,12 +1,24 @@
 # Week 02 SQL
 
-## Objective
+## Project Overview
 
-Build hands-on SQL fundamentals by designing a small relational database, loading sample business data, and writing progressively more advanced analytical queries.
+This project demonstrates SQL skills used in data engineering. It covers database design, data loading, and business reporting through a small relational dataset.
 
 ## Database Schema
 
-This project uses two related tables:
+Departments
+
+↓
+
+Employees
+
+Customers
+
+↓
+
+Orders
+
+The project includes the following tables:
 
 - departments
   - department_id INTEGER PRIMARY KEY
@@ -19,11 +31,33 @@ This project uses two related tables:
   - salary NUMERIC(10, 2) NOT NULL
   - hire_date DATE NOT NULL
   - FOREIGN KEY department_id references departments.department_id
+- customers
+  - customer_id INTEGER PRIMARY KEY
+  - customer_name VARCHAR(100) NOT NULL
+- orders
+  - order_id INTEGER PRIMARY KEY
+  - customer_id INTEGER NOT NULL
+  - amount NUMERIC(10, 2) NOT NULL
+  - FOREIGN KEY customer_id references customers.customer_id
 
 Schema files:
 - schema/create_tables.sql
 - schema/drop_tables.sql
 - schema/seed_data.sql
+
+## Skills Demonstrated
+
+- SELECT
+- WHERE
+- ORDER BY
+- GROUP BY
+- HAVING
+- JOIN
+- CTE
+- Window Functions
+- Ranking
+- Running Totals
+- Reporting
 
 ## Topics Learned
 

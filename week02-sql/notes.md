@@ -124,3 +124,16 @@ CTEs don't necessarily make a query faster, but they often make it much easier t
 - Running totals: A cumulative sum over a window, often built with SUM() and OVER().
 
 Window functions perform calculations across related rows while keeping every row in the result set. Unlike GROUP BY, they do not collapse multiple rows into a single summary row, making them ideal for rankings, running totals, and comparisons within groups.
+
+## Reporting and Business Questions
+
+Reporting is the practice of turning raw transactional data into business-ready insights. Analysts and data engineers use SQL to answer questions such as:
+
+- Which departments have the highest payroll?
+- Which customers generate the most revenue?
+- How do salaries compare across teams?
+- How does revenue grow over time?
+
+Good reporting queries combine filters, grouping, joins, and window functions to produce clear summaries. In practice, reporting is one of the most common use cases for SQL because it lets teams explore trends, monitor KPIs, and support decision-making directly from the database.
+
+> SQL is a declarative language used to retrieve, transform, aggregate, and analyze data. Most data engineering workflows rely heavily on SQL because it allows large datasets to be processed efficiently inside the database.
