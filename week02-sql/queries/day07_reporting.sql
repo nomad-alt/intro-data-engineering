@@ -129,3 +129,93 @@ SELECT
     ) AS difference
 FROM orders
 ORDER BY order_id;
+
+-- Report 10: Executive Dashboard
+WITH
+    employee_metrics AS (
+        SELECT
+            COUNT(*) AS total_employees,
+            COALESCE(SUM(salary), 0) AS total_payroll,
+            COALESCE(AVG(salary), 0) AS company_average_salary,
+            MAX(salary) AS highest_salary,
+            MIN(salary) AS lowest_salary
+        FROM employees
+    ),
+    customer_metrics AS (
+        SELECT COUNT(*) AS total_customers
+        FROM customers
+    ),
+    order_metrics AS (
+        SELECT COUNT(*) AS total_orders, COALESCE(SUM(amount), 0) AS total_revenue
+        FROM orders
+    )
+SELECT em.total_employees, em.total_payroll, em.company_average_salary, em.highest_salary, em.lowest_salary, cm.total_customers, om.total_orders, om.total_revenue
+FROM
+    employee_metrics AS em
+    CROSS JOIN customer_metrics AS cm
+    CROSS JOIN order_metrics AS om;
+
+-- Report 11: Newest Employees
+SELECT
+    employee_id,
+    first_name,
+    last_name,
+    hire_date
+FROM employees
+ORDER BY hire_date DESC
+LIMIT 5;
+
+-- Report 12: Department Payroll Percentage
+WITH department_payroll AS (
+    SELECT
+        d.department_name AS department,
+        SUM(e.salary) AS department_payroll
+    FROM departments AS d
+        LEFT JOIN employees AS e ON d.department_id = e.department_id
+    GROUP BY d.department_id, d.department_name
+),
+company_payroll AS (
+    SELECT SUM(salary) AS total_payroll
+    FROM employees
+)
+SELECT
+    dp.department,
+    dp.department_payroll,
+    cp.total_payroll,
+    ROUND((dp.department_payroll::numeric / NULLIF(cp.total_payroll, 0)) * 100, 2) AS payroll_percentage
+FROM department_payroll AS dp
+    CROSS JOIN company_payroll AS cp
+ORDER BY dp.department_payroll DESC;
+
+-- Report 13: Salary Distribution
+SELECT
+    CASE
+        WHEN salary < 35000 THEN 'Junior'
+        WHEN salary < 45000 THEN 'Mid'
+        ELSE 'Senior'
+    END AS salary_band,
+    COUNT(*) AS employee_count
+FROM employees
+GROUP BY
+    CASE
+        WHEN salary < 35000 THEN 'Junior'
+        WHEN salary < 45000 THEN 'Mid'
+        ELSE 'Senior'
+    END
+ORDER BY employee_count DESC;
+
+-- Report 14: Customer Lifetime Value
+SELECT
+    customer,
+    total_spending,
+    RANK() OVER (
+        ORDER BY total_spending DESC
+    ) AS customer_rank
+FROM (
+        SELECT c.customer_name AS customer, COALESCE(SUM(o.amount), 0) AS total_spending
+        FROM customers AS c
+            LEFT JOIN orders AS o ON c.customer_id = o.customer_id
+        GROUP BY
+            c.customer_id, c.customer_name
+    ) AS customer_spending
+ORDER BY total_spending DESC;
