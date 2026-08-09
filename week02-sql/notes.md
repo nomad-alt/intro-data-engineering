@@ -109,3 +109,18 @@ INNER JOIN returns only matching rows. LEFT JOIN returns all rows from the left 
 - When to choose a CTE instead of a nested subquery: Use a CTE when the query becomes long, layered, or needs to be reused in several parts of the same statement.
 
 CTEs don't necessarily make a query faster, but they often make it much easier to understand, maintain, and debug. In analytics engineering and dbt, complex transformations are commonly built as a sequence of readable CTEs.
+
+## Window Functions
+
+- Window functions perform calculations across related rows while keeping every row in the result set.
+- OVER(): Defines the window or frame of rows used for the calculation.
+- PARTITION BY: Divides the rows into groups so calculations happen within each group.
+- ORDER BY inside OVER(): Controls the row order within each window for functions like ranking and running totals.
+- ROW_NUMBER(): Assigns a unique number to each row in the window.
+- RANK(): Assigns a rank, but skips numbers for ties.
+- DENSE_RANK(): Assigns a rank without gaps for ties.
+- LAG(): Returns a value from a previous row in the window.
+- LEAD(): Returns a value from a following row in the window.
+- Running totals: A cumulative sum over a window, often built with SUM() and OVER().
+
+Window functions perform calculations across related rows while keeping every row in the result set. Unlike GROUP BY, they do not collapse multiple rows into a single summary row, making them ideal for rankings, running totals, and comparisons within groups.

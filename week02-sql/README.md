@@ -51,7 +51,18 @@ Schema files:
 - Reporting queries for business summaries
 - Query execution order
 - Window functions for advanced reporting
+- OVER() for defining a window of rows
+- PARTITION BY for dividing rows into groups within a window
+- ROW_NUMBER() for assigning row numbers
+- RANK() for ranking with gaps
+- DENSE_RANK() for ranking without gaps
+- LAG() for accessing a previous row value
+- LEAD() for accessing a next row value
 - Query formatting and SQL comments
+
+## Window Functions vs GROUP BY
+
+Window functions are different from GROUP BY because they do not collapse rows into one summary row per group. Instead, they keep the original rows and calculate additional values across a defined window of rows, which is useful for rankings, running totals, and comparisons with adjacent rows.
 
 ## Query Execution Order
 
