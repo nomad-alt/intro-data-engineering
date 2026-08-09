@@ -143,16 +143,16 @@ psql -U postgres -h localhost -p 5432 -d company_db -c "SELECT COUNT(*) FROM emp
 
 ## How To Run Queries
 
-Run a single query file:
+Run a learning exercise from the analytics folder:
 
 ```bash
-psql -U postgres -h localhost -p 5432 -d company_db -f week02-sql/queries/day01_select.sql
+psql -U postgres -h localhost -p 5432 -d company_db -f week02-sql/analytics/day01_select.sql
 ```
 
-Run any day file the same way:
+Run the production-style reporting queries from the reports folder:
 
 ```bash
-psql -U postgres -h localhost -p 5432 -d company_db -f week02-sql/queries/day04_joins.sql
+psql -U postgres -h localhost -p 5432 -d company_db -f week02-sql/reports/day07_reporting.sql
 ```
 
 Or open an interactive session and run scripts with \i:
@@ -166,5 +166,6 @@ Inside psql:
 ```sql
 \i week02-sql/schema/create_tables.sql
 \i week02-sql/schema/seed_data.sql
-\i week02-sql/queries/day01_select.sql
+\i week02-sql/analytics/day01_select.sql
+\i week02-sql/reports/day07_reporting.sql
 ```
