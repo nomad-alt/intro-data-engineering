@@ -9,3 +9,4 @@ PROCESSED_DATA_DIR = PROJECT_ROOT / "data" / "processed"
 LOG_DIR = PROJECT_ROOT / "logs"
 
 EMPLOYEE_CSV = RAW_DATA_DIR / "employees.csv"
+DEPARTMENT_JSON = RAW_DATA_DIR / "departments.json"
