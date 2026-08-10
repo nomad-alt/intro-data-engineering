@@ -8,7 +8,7 @@ This project demonstrates a simple ETL workflow for processing employee data. It
 
 The pipeline follows a simple extract, transform, and load flow:
 
-1. Extract: read employee data from a CSV file.
+1. Extract: read employee data from supported input files.
 2. Transform: clean and enrich the records.
 3. Load: save the transformed data to CSV and JSON outputs.
 
@@ -37,6 +37,37 @@ week03-etl/
 │   └── employees.csv
 └── README.md
 ```
+
+## Supported Input Formats
+
+The extractor supports:
+
+- CSV files with the .csv extension
+- JSON files with the .json extension
+
+The dispatching logic in src/extract.py routes files to the appropriate parser automatically.
+
+## CSV Extraction
+
+CSV files are read with csv.DictReader and returned as a list of dictionaries. This makes the data easy to transform and process in later pipeline stages.
+
+## JSON Extraction
+
+JSON files are parsed with json.load and returned as structured Python objects. This is useful for source files that are already organized as arrays of records.
+
+## Error Handling
+
+The extraction layer raises clear errors for common issues:
+
+- FileNotError for missing files
+- RuntimeError for unreadable CSV or JSON files
+- ValueError for unsupported file types
+
+These messages make debugging easier while preserving the underlying cause.
+
+## Logging
+
+The pipeline uses Python logging to report progress during extraction. Logging is more suitable for production-style systems than print statements because it provides structured, configurable output.
 
 ## How to Install Dependencies
 

@@ -24,4 +24,20 @@ Logging is used to record useful information while a pipeline runs. Unlike print
 
 Modular design breaks a pipeline into small, focused functions and files. This makes it easier to test, reuse, and maintain code. When each stage of the pipeline has a clear responsibility, changes are less risky and new features can be added more cleanly. A modular ETL pipeline is also easier for teams to collaborate on because responsibilities are well defined.
 
-> Extract should focus only on reading data. Validation, cleaning, and transformations belong in later stages of the pipeline.
+## CSV and JSON
+
+CSV and JSON are common data interchange formats. CSV is a row-based format that is easy to inspect and read with Python's csv module. JSON is a structured format that can represent nested objects and arrays and is commonly used in APIs and configuration files. Choosing the right format depends on source system requirements and downstream processing needs.
+
+## Generic Functions and Wrapper Functions
+
+Generic functions are reusable helpers that solve a general problem, such as reading any CSV or JSON file. Wrapper functions sit on top of those helpers and provide a more specific interface for a particular business use case. For example, a generic extract_csv function can be wrapped by a function that extracts employee data from a known file path. This pattern reduces duplication and keeps code easier to extend.
+
+## Configuration and Error Handling
+
+Configuration values such as input file paths and output directories should be stored in one place so they are easy to update. Error handling should make failures understandable. Raising clear exceptions such as FileNotFoundError, RuntimeError, or ValueError helps developers quickly identify issues without losing the original cause.
+
+## Clean Architecture in ETL
+
+A clean architecture keeps the pipeline organized by responsibility. The Extract layer collects data from sources, the Transform layer cleans and reshapes it, and the Load layer writes it to its destination. This separation makes it easier to test each stage independently and to swap out components when requirements change.
+
+> The Extract layer is responsible only for retrieving data. It should not clean, validate, or transform records. Keeping extraction focused on data retrieval makes the pipeline easier to maintain and extend.
