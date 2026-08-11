@@ -17,8 +17,9 @@ logging.basicConfig(
 
 logger = logging.getLogger(__name__)
 
-RAW_PATH = Path("data/raw/sales.csv")
-OUTPUT_PATH = Path("data/processed/sales_clean.parquet")
+BASE_DIR = Path(__file__).resolve().parent.parent
+RAW_PATH = BASE_DIR / "data" / "raw" / "sales.csv"
+OUTPUT_PATH = BASE_DIR / "data" / "processed" / "sales_clean.parquet"
 
 
 def main() -> None:
