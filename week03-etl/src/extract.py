@@ -2,33 +2,28 @@
 
 from __future__ import annotations
 
-import csv
 import json
 from pathlib import Path
 
+import pandas as pd
 
-def extract_csv(path: Path) -> list[dict[str, str]]:
+
+def extract_csv(path: Path) -> pd.DataFrame:
     """
-    Read records from a CSV file.
+    Read records from a CSV file into a DataFrame.
 
     Args:
         path: Path to the CSV file.
 
     Returns:
-        List of dictionaries.
+        A pandas DataFrame containing the CSV contents.
     """
     if not path.exists():
         raise FileNotFoundError(f"File not found: {path}")
 
     try:
-        with path.open(
-            "r",
-            encoding="utf-8",
-            newline="",
-        ) as file:
-            reader = csv.DictReader(file)
-            return list(reader)
-    except OSError as error:
+        return pd.read_csv(path)
+    except (OSError, pd.errors.ParserError, ValueError) as error:
         raise RuntimeError(f"Unable to read CSV file: {path}") from error
 
 

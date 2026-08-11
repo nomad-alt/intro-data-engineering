@@ -1,5 +1,6 @@
 from pathlib import Path
 
+import pandas as pd
 from src.extract import extract_csv
 
 
@@ -13,8 +14,9 @@ def test_extract_csv(tmp_path: Path) -> None:
 
     records = extract_csv(csv_file)
 
+    assert isinstance(records, pd.DataFrame)
     assert len(records) == 1
-    assert records[0]["name"] == "Alice"
+    assert records.iloc[0]["name"] == "Alice"
 
 
 import json
