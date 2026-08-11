@@ -1,29 +1,21 @@
-"""Run the ETL pipeline."""
-
-import logging
-
-from extract import extract_file
+from pathlib import Path
 
 try:
-    from .config import DEPARTMENT_JSON, EMPLOYEE_CSV
+    from src.extract import extract_csv
 except ImportError:  # pragma: no cover - fallback for direct script execution
-    from config import DEPARTMENT_JSON, EMPLOYEE_CSV
+    from extract import extract_csv
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(levelname)s: %(message)s",
-)
-
-logger = logging.getLogger(__name__)
+RAW_PATH = Path("data/raw/sales.csv")
 
 
 def main() -> None:
-    """Run the extraction stage."""
-    employees = extract_file(EMPLOYEE_CSV)
-    departments = extract_file(DEPARTMENT_JSON)
+    df = extract_csv(RAW_PATH)
 
-    logger.info("Employees extracted: %d", len(employees))
-    logger.info("Departments extracted: %d", len(departments))
+    print(df.head())
+    print()
+    print(df.info())
+    print()
+    print(df.isna().sum())
 
 
 if __name__ == "__main__":
