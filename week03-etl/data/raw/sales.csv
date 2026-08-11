@@ -1,0 +1,9 @@
+order_id,customer_name,product,quantity,unit_price,country
+1001,Alice,Laptop,1,1200.00,Sweden
+1002,Bob,Keyboard,2,75.50,Norway
+1003,Charlie,Monitor,2,350.00,Sweden
+1004,Diana,Mouse,3,40.00,Denmark
+1005,Eve,Laptop,1,1250.00,Sweden
+1006,Frank,Keyboard,0,75.50,Norway
+1007,Grace,Monitor,1,,Sweden
+1008,,Mouse,2,40.00,Denmark
