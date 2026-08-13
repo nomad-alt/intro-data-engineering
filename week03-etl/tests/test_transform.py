@@ -1,5 +1,18 @@
 import pandas as pd
-from src.transform import transform_sales
+import pytest
+from src.transform import transform_sales, validate_sales
+
+
+def test_validate_sales_raises_for_missing_required_columns() -> None:
+    input_df = pd.DataFrame(
+        {
+            "customer_name": ["Alice"],
+            "quantity": [1],
+        }
+    )
+
+    with pytest.raises(ValueError, match="Missing required columns"):
+        validate_sales(input_df)
 
 
 def test_transform_sales_removes_invalid_quantity() -> None:
